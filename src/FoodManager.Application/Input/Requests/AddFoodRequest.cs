@@ -1,8 +1,8 @@
 ﻿using FoodManager.Domain.Enums;
 
-namespace FoodManager.Domain.Dtos.Requests
+namespace FoodManager.Application.Input.Requests
 {
-   public sealed record FoodRequest
+   public sealed record AddFoodRequest
    (
        string Name,
        decimal Price,

@@ -12,5 +12,12 @@ namespace FoodManager.Infrastructure.Persistence.Repositories
         {
              await _collection.InsertOneAsync(entity, cancellationToken: cancellationToken);
         }
+
+        public async Task<long> DeleteAsync(Expression<Func<TEntity, bool>> filterExpression, CancellationToken cancellationToken)
+        {
+            var result = await _collection.DeleteOneAsync(filterExpression, cancellationToken: cancellationToken);
+
+            return result.DeletedCount;
+        }
     }
 }

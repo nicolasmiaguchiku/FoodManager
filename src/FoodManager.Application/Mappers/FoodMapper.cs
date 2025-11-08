@@ -1,5 +1,5 @@
-﻿using FoodManager.Application.Output.Response;
-using FoodManager.Domain.Dtos.Requests;
+﻿using FoodManager.Application.Input.Requests;
+using FoodManager.Application.Output.Response;
 using FoodManager.Domain.Entities;
 using FoodManager.Domain.Filters;
 
@@ -7,7 +7,7 @@ namespace FoodManager.Application.Mappers
 {
     public static class FoodMapper
     {
-        public static FoodEntity ToEntity(this FoodRequest food)
+        public static FoodEntity ToEntity(this AddFoodRequest food)
         {
             return new FoodEntity
             {
