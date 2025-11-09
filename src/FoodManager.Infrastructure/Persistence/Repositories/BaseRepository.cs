@@ -1,4 +1,4 @@
-﻿using FoodManager.Domain.Interfaces;
+﻿using FoodManager.Domain.Interfaces.Repositories;
 using MongoDB.Driver;
 using System.Linq.Expressions;
 

@@ -1,6 +1,6 @@
 ﻿using System.Linq.Expressions;
 
-namespace FoodManager.Domain.Interfaces
+namespace FoodManager.Domain.Interfaces.Repositories
 {
     public interface IBaseRepository<TEntity> where TEntity : class
     {

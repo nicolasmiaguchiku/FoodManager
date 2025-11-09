@@ -1,15 +1,15 @@
-﻿using FoodManager.Domain.Interfaces;
-using FoodManager.Domain.Results;
+﻿using FoodManager.Domain.Results;
 using LiteBus.Queries.Abstractions;
-using FoodManager.Domain.Services;
 using FoodManager.Application.Mappers;
 using FoodManager.Domain.Filters;
 using FoodManager.Application.Output.Response;
+using FoodManager.Domain.Interfaces.Services;
+using FoodManager.Domain.Interfaces.Repositories;
 
 namespace FoodManager.Application.Output.Queries
 {
     public class GetFoodQueryHandler(
-       IFoodRepository foodRepository,
+       IFoodRepository _repository,
        ICacheService cacheService) : IQueryHandler<GetFoodQuery, Result<PagedResult<GetFoodResponse>>>
     {
         public async Task<Result<PagedResult<GetFoodResponse>>> HandleAsync(GetFoodQuery request, CancellationToken cancellationToken)
@@ -30,7 +30,7 @@ namespace FoodManager.Application.Output.Queries
                     .WithNames(request.Foodequest.Names)
                     .Build();
 
-                var foods = await foodRepository.GetFoodsAsync(foodFilterBuilder, cancellationToken);
+                var foods = await _repository.GetFoodsAsync(foodFilterBuilder, cancellationToken);
 
                 var result = foods.ToResponse(request.Foodequest.PageFilter);
 
