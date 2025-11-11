@@ -16,6 +16,7 @@ builder.Services
     .AddMemoryCache()
     .AddMongo(applicationSettings.MongoSettings)
     .AddServices()
+    .AddValidators()
     .ConfigureLiteBus()
     .AddOpenApi("v1").AddControllers();
 
