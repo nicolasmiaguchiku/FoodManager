@@ -7,7 +7,7 @@ using FoodManager.Domain.Interfaces.Repositories;
 
 namespace FoodManager.Application.Input.Handlers.Commands
 {
-    public  class AddFoodCommandHandler(IFoodRepository _repository, ICacheService _cache) : ICommandHandler<AddFoodCommand, Result<GetFoodResponse>>
+    public sealed class AddFoodCommandHandler(IFoodRepository _repository, ICacheService _cache) : ICommandHandler<AddFoodCommand, Result<GetFoodResponse>>
     {
         public async Task<Result<GetFoodResponse>> HandleAsync(AddFoodCommand request, CancellationToken cancellationToken = default)
         {

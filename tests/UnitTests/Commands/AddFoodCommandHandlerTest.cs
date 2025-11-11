@@ -1,0 +1,49 @@
+﻿using AutoFixture;
+using FluentAssertions;
+using FoodManager.Application.Input.Handlers.Commands;
+using FoodManager.Domain.Entities;
+using FoodManager.Domain.Interfaces.Repositories;
+using FoodManager.Domain.Interfaces.Services;
+using Moq;
+
+namespace UnitTests.Commands
+{
+    public class AddFoodCommandHandlerTest
+    {
+        private readonly Mock<IFoodRepository> _foodReposiroryMock = new();
+        private readonly Fixture _fixture = new();
+        private readonly Mock<ICacheService> _cacheMock = new ();
+        public  readonly AddFoodCommandHandler _handler;
+
+        public AddFoodCommandHandlerTest()
+        {
+            _handler = new(_foodReposiroryMock.Object, _cacheMock.Object);
+        }
+
+        [Fact]
+        public async Task WhenAddNewFoodAndRequestIsValidThenFoodShouldBeInsertAsync()
+        {
+            //Arrange
+            var command = _fixture.Create<AddFoodCommand>();
+
+            //Act
+            var result = await _handler.HandleAsync(command, CancellationToken.None);
+
+            //Assert
+            result.IsSuccess
+                .Should()
+                .BeTrue();
+
+            result.Should()
+                .NotBeNull();
+
+            result.Data
+                .Should()
+                .NotBeNull();
+ 
+            _foodReposiroryMock.Verify(
+                repo => repo.AddAsync(It.IsAny<FoodEntity>(),
+                It.IsAny<CancellationToken>()), Times.Once);
+        }
+    }
+}
