@@ -12,8 +12,8 @@ namespace UnitTests.Commands
     {
         private readonly Mock<IFoodRepository> _foodReposiroryMock = new();
         private readonly Fixture _fixture = new();
-        private readonly Mock<ICacheService> _cacheMock = new ();
-        public  readonly AddFoodCommandHandler _handler;
+        private readonly Mock<ICacheService> _cacheMock = new();
+        public readonly AddFoodCommandHandler _handler;
 
         public AddFoodCommandHandlerTest()
         {
@@ -40,7 +40,7 @@ namespace UnitTests.Commands
             result.Data
                 .Should()
                 .NotBeNull();
- 
+
             _foodReposiroryMock.Verify(
                 repo => repo.AddAsync(It.IsAny<FoodEntity>(),
                 It.IsAny<CancellationToken>()), Times.Once);

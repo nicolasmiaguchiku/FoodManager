@@ -1,8 +1,8 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using FluentValidation;
 using FluentValidation.AspNetCore;
-using FluentValidation;
-using FoodManager.Application.Input.Handlers.Commands;
+using FoodManager.Application.Input.Requests;
 using FoodManager.Application.Validations;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace FoodManager.CrossCutting.Extentions
 {
@@ -14,8 +14,8 @@ namespace FoodManager.CrossCutting.Extentions
             {
                 options.DisableDataAnnotationsValidation = true;
             });
-            
-            services.AddScoped<IValidator<AddFoodCommand>, AddFoodValidator>();
+
+            services.AddScoped<IValidator<AddFoodRequest>, AddFoodValidator>();
             return services;
         }
     }

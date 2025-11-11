@@ -10,20 +10,10 @@ using System.Text.Json;
 
 namespace FoodManager.Application.Input.Handlers.Commands
 {
-    public sealed class AddFoodCommandHandler(
-        IFoodRepository _repository, 
-        ICacheService _cache, 
-        IValidator<AddFoodCommand> validator) : ICommandHandler<AddFoodCommand, Result<GetFoodResponse>>
+    public sealed class AddFoodCommandHandler(IFoodRepository _repository, ICacheService _cache) : ICommandHandler<AddFoodCommand, Result<GetFoodResponse>>
     {
         public async Task<Result<GetFoodResponse>> HandleAsync(AddFoodCommand request, CancellationToken cancellationToken = default)
         {
-            var validationResult = await validator.ValidateAsync(request, cancellationToken);
-
-            if (!validationResult.IsValid)
-            {
-                return Result<GetFoodResponse>.Failure(FoodErrors.ValidationError(JsonSerializer.Serialize(validationResult.Errors)));
-            }
-                
             var result = request.FoodRequest.ToEntity();
 
             await _repository.AddAsync(result, cancellationToken);
