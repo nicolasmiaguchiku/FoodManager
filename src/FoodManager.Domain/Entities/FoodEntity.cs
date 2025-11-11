@@ -1,5 +1,4 @@
 ﻿using FoodManager.Domain.Enums;
-using System.Net.Http.Headers;
 
 namespace FoodManager.Domain.Entities
 {

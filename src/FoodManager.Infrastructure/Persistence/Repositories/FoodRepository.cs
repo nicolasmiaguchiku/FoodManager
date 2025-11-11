@@ -1,6 +1,6 @@
 ﻿using FoodManager.Domain.Entities;
 using FoodManager.Domain.Filters;
-using FoodManager.Domain.Interfaces;
+using FoodManager.Domain.Interfaces.Repositories;
 using FoodManager.Infrastructure.Stages;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization;

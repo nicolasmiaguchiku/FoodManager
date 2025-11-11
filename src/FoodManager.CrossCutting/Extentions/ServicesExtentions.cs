@@ -1,8 +1,8 @@
-﻿using FoodManager.Domain.Services;
-using FoodManager.Domain.Interfaces;
-using FoodManager.Infrastructure.Caching;
-using FoodManager.Infrastructure.Persistence.Repositories;
+﻿using FoodManager.Infrastructure.Persistence.Repositories;
 using Microsoft.Extensions.DependencyInjection;
+using FoodManager.Domain.Interfaces.Services;
+using FoodManager.Domain.Interfaces.Repositories;
+using FoodManager.Infrastructure.Persistence.Services;
 
 namespace FoodManager.CrossCutting.Extentions
 {
