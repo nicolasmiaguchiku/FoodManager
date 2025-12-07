@@ -2,6 +2,8 @@
 using FoodManager.Catalog.Domain.Filters;
 using FoodManager.Catalog.Domain.Interfaces.Repositories;
 using FoodManager.Catalog.Infrastructure.Stages;
+using Mattioli.Configurations.Http;
+using Mattioli.Configurations.Repositories;
 using Microsoft.Extensions.Logging;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization;
@@ -16,9 +18,9 @@ namespace FoodManager.Catalog.Infrastructure.Persistence.Repositories
         public async Task<PagedResult<FoodEntity>> GetFoodsAsync(FoodFiltersBuilder filters, CancellationToken cancellationToken)
         {
             var pipeline = PipelineDefinitionBuilder
-          .For<FoodEntity>()
-          .As<FoodEntity, FoodEntity, BsonDocument>()
-          .FilterFoods(filters);
+                .For<FoodEntity>()
+                .As<FoodEntity, FoodEntity, BsonDocument>()
+                .FilterFoods(filters);
 
             var options = new AggregateOptions { AllowDiskUse = true };
             var aggregation = await _collection.AggregateAsync(pipeline, options, cancellationToken);

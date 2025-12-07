@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
 using FoodManager.Catalog.Application.Dtos;
 using FoodManager.Catalog.Application.Mappers;
-using FoodManager.Catalog.Catalog.Domain.Results;
+using Mattioli.Configurations.Models;
 using FoodManager.Catalog.Domain.Errors;
 using FoodManager.Catalog.Domain.Interfaces.Repositories;
 using LiteBus.Commands.Abstractions;

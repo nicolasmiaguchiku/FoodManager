@@ -1,5 +1,6 @@
 ﻿using FoodManager.Catalog.Domain.Enums;
 using FoodManager.Catalog.Domain.Filters;
+using Mattioli.Configurations.Http;
 
 namespace FoodManager.Catalog.Application.Input.Requests
 {

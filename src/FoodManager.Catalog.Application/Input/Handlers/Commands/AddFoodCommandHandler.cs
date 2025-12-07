@@ -1,6 +1,6 @@
 ﻿using FoodManager.Catalog.Application.Mappers;
 using FoodManager.Catalog.Application.Output.Response;
-using FoodManager.Catalog.Catalog.Domain.Results;
+using Mattioli.Configurations.Models;
 using FoodManager.Catalog.Domain.Interfaces.Repositories;
 using FoodManager.Catalog.Domain.Interfaces.Services;
 using LiteBus.Commands.Abstractions;

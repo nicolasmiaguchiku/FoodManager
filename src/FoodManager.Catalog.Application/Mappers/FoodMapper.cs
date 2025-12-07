@@ -3,6 +3,7 @@ using FoodManager.Catalog.Application.Input.Requests;
 using FoodManager.Catalog.Domain.Entities;
 using FoodManager.Catalog.Domain.Filters;
 using FoodManager.Catalog.Application.Dtos;
+using Mattioli.Configurations.Http;
 
 namespace FoodManager.Catalog.Application.Mappers
 {

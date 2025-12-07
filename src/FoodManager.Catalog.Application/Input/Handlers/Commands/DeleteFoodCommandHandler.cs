@@ -1,5 +1,4 @@
-﻿using FoodManager.Catalog.Catalog.Domain.Results;
-using FoodManager.Catalog.Domain.Interfaces.Repositories;
+﻿using FoodManager.Catalog.Domain.Interfaces.Repositories;
 using LiteBus.Commands.Abstractions;
 using Microsoft.Extensions.Logging;
 

@@ -1,4 +1,6 @@
 using FoodManager.Catalog.CrossCutting.Extentions;
+using Mattioli.Configurations.Extensions.FluentValidations;
+using FoodManager.Catalog.CrossCutting.Middleware;
 using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,9 +18,10 @@ builder.Services
     .AddMemoryCache()
     .AddMongo(applicationSettings.MongoSettings)
     .AddServices()
-    .AddValidators()
+    .ConfigureValidationErrorResponses()
     .ConfigureLiteBus()
     .AddOpenApi("v1")
+    .AddValidators()
     .AddControllers()
     .AddNewtonsoftJson();
 

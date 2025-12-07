@@ -1,4 +1,4 @@
-﻿using FoodManager.Catalog.Catalog.Domain.Results;
+﻿using Mattioli.Configurations.Models;
 
 namespace FoodManager.Catalog.Domain.Errors
 {

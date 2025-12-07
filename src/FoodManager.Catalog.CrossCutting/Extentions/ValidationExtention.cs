@@ -17,8 +17,6 @@ namespace FoodManager.Catalog.CrossCutting.Extentions
                 options.DisableDataAnnotationsValidation = true;
             });
 
-            services.AddScoped<IValidator<AddFoodRequest>, AddFoodValidator>();
-            services.AddScoped<IValidator<UpdateFoodRequest>, UpdateFoodRequestValidator>();
             services.AddScoped<IValidator<JsonPatchError>, JsonPatchValidator>();
             services.AddScoped<IValidator<FoodDto>, FoodDtoValidator>();
 
