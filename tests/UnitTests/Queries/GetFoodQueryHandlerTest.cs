@@ -1,12 +1,11 @@
 ﻿using AutoFixture;
-using DnsClient.Internal;
 using FluentAssertions;
 using FoodManager.Catalog.Application.Output.Queries;
-using FoodManager.Catalog.Application.Output.Response;
 using FoodManager.Catalog.Domain.Entities;
 using FoodManager.Catalog.Domain.Filters;
 using FoodManager.Catalog.Domain.Interfaces.Repositories;
 using FoodManager.Catalog.Domain.Interfaces.Services;
+using Mattioli.Configurations.Http;
 using Microsoft.Extensions.Logging;
 using Moq;
 

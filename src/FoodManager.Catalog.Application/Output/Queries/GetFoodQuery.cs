@@ -1,8 +1,9 @@
-﻿using FoodManager.Catalog.Application.Input.Requests;
-using FoodManager.Catalog.Application.Output.Response;
-using FoodManager.Catalog.Catalog.Domain.Results;
+﻿using Mattioli.Configurations.Models;
 using FoodManager.Catalog.Domain.Filters;
 using LiteBus.Queries.Abstractions;
+using Mattioli.Configurations.Http;
+using FoodManager.Internal.Shared.Http.Catalog.Requests;
+using FoodManager.Internal.Shared.Http.Catalog.Responses;
 
 namespace FoodManager.Catalog.Application.Output.Queries;
 

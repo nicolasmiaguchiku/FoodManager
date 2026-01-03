@@ -1,6 +1,7 @@
 ﻿using FoodManager.Catalog.Domain.Entities;
 using FoodManager.Catalog.Domain.Filters;
-using System.Linq.Expressions;
+using Mattioli.Configurations.Http;
+using Mattioli.Configurations.Repositories;
 
 namespace FoodManager.Catalog.Domain.Interfaces.Repositories;
 
