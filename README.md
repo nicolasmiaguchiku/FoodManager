@@ -72,5 +72,5 @@ dotnet run
 
 Desenvolvido por **Nicolas Miaguchiku**
 
-- GitHub: [https://github.com/seu-usuario](https://github.com/nicolasmiaguchiku)
-- LinkedIn: [https://linkedin.com/in/seu-linkedin](https://www.linkedin.com/nicolas-miaguchiku)
+- GitHub: https://github.com/nicolasmiaguchiku
+- LinkedIn: https://www.linkedin.com/nicolas-miaguchiku
