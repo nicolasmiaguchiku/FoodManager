@@ -7,8 +7,8 @@ var builder = WebApplication.CreateBuilder(args);
 var enviroment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
 
 builder.Configuration
-    .AddJsonFile("appsettings.json", false, reloadOnChange: true)
-    .AddJsonFile($"appsettings.{enviroment}.json", true, reloadOnChange: true)
+    .AddJsonFile("appsettings.json", optional: false, reloadOnChange: false)
+    .AddJsonFile($"appsettings.{enviroment}.json", optional: true, reloadOnChange: false)
     .AddEnvironmentVariables();
 
 var applicationSettings = builder.Configuration.GetApplicationSettings(builder.Environment);
