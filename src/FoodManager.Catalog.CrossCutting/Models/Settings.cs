@@ -13,7 +13,6 @@ namespace FoodManager.Catalog.CrossCutting.Models
     {
         public required MongoSettings MongoSettings { get; set; }
         public required KeycloakSettings KeycloakSettings { get; set; }
-
         public required MltSettings MltSettings { get; set; }
     }
 }
