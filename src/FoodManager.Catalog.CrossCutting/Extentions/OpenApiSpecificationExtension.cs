@@ -40,6 +40,7 @@ public static class OpenApiSpecificationExtension
             options.HideClientButton = true;
             options.HideModels = true;
             options.HideSearch = true;
+            options.Servers = [];
 
             options.WithTitle("FoodManager - Catalog | Reference");
             options.WithClassicLayout();
