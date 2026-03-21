@@ -1,4 +1,5 @@
 ﻿using FoodManager.Internal.Shared.Enums;
+using FoodManager.Internal.Shared.Filters;
 
 namespace FoodManager.Catalog.Domain.Filters
 {

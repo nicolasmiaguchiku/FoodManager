@@ -1,9 +1,9 @@
 ﻿using FoodManager.Catalog.Application.Mappers;
 using FoodManager.Catalog.Domain.Interfaces.Repositories;
 using FoodManager.Internal.Shared.Http.Catalog.Responses;
+using FoodManager.Internal.Shared.Responses;
 using FoodManager.Internal.Shared.Services;
 using LiteBus.Commands.Abstractions;
-using Mattioli.Configurations.Models;
 using Microsoft.Extensions.Logging;
 
 namespace FoodManager.Catalog.Application.Input.Handlers.Commands

@@ -1,7 +1,7 @@
 ﻿using FoodManager.Catalog.Domain.Entities;
 using FoodManager.Catalog.Domain.Filters;
-using Mattioli.Configurations.Http;
-using Mattioli.Configurations.Repositories;
+using FoodManager.Internal.Shared.Repositories;
+using FoodManager.Internal.Shared.Responses;
 
 namespace FoodManager.Catalog.Domain.Interfaces.Repositories;
 

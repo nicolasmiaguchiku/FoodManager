@@ -1,6 +1,5 @@
 using FoodManager.Catalog.CrossCutting.Extentions;
 using FoodManager.Internal.Shared.Extensions;
-using Mattioli.Configurations.Extensions.FluentValidations;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,13 +13,11 @@ builder.Configuration
 var applicationSettings = builder.Configuration.GetApplicationSettings(builder.Environment);
 
 builder.Services
-    .AddMemoryCache()
     .AddMongo(applicationSettings.MongoSettings)
-    .AddApiClients(applicationSettings.KeycloakSettings)
     .AddRepositories()
-    .ConfigureValidationErrorResponses()
     .AddApiAuthentication(applicationSettings.KeycloakSettings.Realm)
     .ConfigureLiteBus()
+    .ConfigureValidationErrorResponses()
     .AddApiSpecification()
     .AddValidators()
     .AddControllers()
@@ -32,7 +29,7 @@ builder.Host.UseSerilog(enviroment!, applicationSettings.MltSettings.SeqUrl!);
 var app = builder.Build();
 
 app.MapOpenApi();
-app.UseSpecification();
+app.UseSpecification("Catalog");
 
 app.UseRequestContextLogging()
    .UseHttpsRedirection()

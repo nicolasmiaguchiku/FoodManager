@@ -1,5 +1,5 @@
-﻿using LiteBus.Commands.Abstractions;
-using Mattioli.Configurations.Models;
+﻿using FoodManager.Internal.Shared.Responses;
+using LiteBus.Commands.Abstractions;
 
 namespace FoodManager.Catalog.Application.Input.Handlers.Commands;
 

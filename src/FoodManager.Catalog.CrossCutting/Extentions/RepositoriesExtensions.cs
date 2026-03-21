@@ -12,7 +12,6 @@ namespace FoodManager.Catalog.CrossCutting.Extentions
         public static IServiceCollection AddRepositories(this IServiceCollection services)
         {
             services.AddScoped<IFoodRepository, FoodRepository>();
-            services.AddScoped<ICacheService, MemoryCacheService>();
             services.AddScoped<IImageStorageService, ImageStorageService>();
             services.AddSingleton<JwtSecurityTokenHandler>();
 

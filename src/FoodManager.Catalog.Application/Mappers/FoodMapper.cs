@@ -1,9 +1,10 @@
 ﻿using FoodManager.Catalog.Domain.Entities;
 using FoodManager.Internal.Shared.Dtos;
+using FoodManager.Internal.Shared.Filters;
 using FoodManager.Internal.Shared.Http.Auth.Models;
 using FoodManager.Internal.Shared.Http.Catalog.Requests;
 using FoodManager.Internal.Shared.Http.Catalog.Responses;
-using Mattioli.Configurations.Http;
+using FoodManager.Internal.Shared.Responses;
 
 namespace FoodManager.Catalog.Application.Mappers
 {

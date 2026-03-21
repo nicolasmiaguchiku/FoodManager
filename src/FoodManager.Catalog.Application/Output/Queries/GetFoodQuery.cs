@@ -1,8 +1,7 @@
-﻿using Mattioli.Configurations.Models;
-using LiteBus.Queries.Abstractions;
-using Mattioli.Configurations.Http;
-using FoodManager.Internal.Shared.Http.Catalog.Requests;
+﻿using FoodManager.Internal.Shared.Http.Catalog.Requests;
 using FoodManager.Internal.Shared.Http.Catalog.Responses;
+using FoodManager.Internal.Shared.Responses;
+using LiteBus.Queries.Abstractions;
 
 namespace FoodManager.Catalog.Application.Output.Queries;
 
