@@ -8,7 +8,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="FoodManager.Internal.Shared" Version="1.0.21-beta.19" />
+		<PackageReference Include="FoodManager.Internal.Shared" Version="1.0.22" />
 	</ItemGroup>
 
 </Project>

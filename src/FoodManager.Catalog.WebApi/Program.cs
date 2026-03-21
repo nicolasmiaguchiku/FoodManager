@@ -13,11 +13,11 @@ builder.Configuration
 var applicationSettings = builder.Configuration.GetApplicationSettings(builder.Environment);
 
 builder.Services
-    .AddMemoryCache()
     .AddMongo(applicationSettings.MongoSettings)
     .AddRepositories()
     .AddApiAuthentication(applicationSettings.KeycloakSettings.Realm)
     .ConfigureLiteBus()
+    .ConfigureValidationErrorResponses()
     .AddApiSpecification()
     .AddValidators()
     .AddControllers()
