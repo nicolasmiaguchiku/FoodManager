@@ -4,7 +4,7 @@ using FoodManager.Catalog.Domain.Interfaces.Repositories;
 using FoodManager.Internal.Shared.Dtos;
 using FoodManager.Internal.Shared.Http.Catalog.Errors;
 using LiteBus.Commands.Abstractions;
-using Mattioli.Configurations.Models;
+using FoodManager.Internal.Shared.Responses;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.Extensions.Logging;
 

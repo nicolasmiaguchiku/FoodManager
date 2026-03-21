@@ -1,7 +1,7 @@
 ﻿using FoodManager.Catalog.Domain.Interfaces.Repositories;
 using FoodManager.Internal.Shared.Http.Catalog.Errors;
+using FoodManager.Internal.Shared.Responses;
 using LiteBus.Commands.Abstractions;
-using Mattioli.Configurations.Models;
 using Microsoft.Extensions.Logging;
 
 namespace FoodManager.Catalog.Application.Input.Handlers.Commands

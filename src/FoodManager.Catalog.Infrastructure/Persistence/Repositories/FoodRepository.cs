@@ -2,8 +2,8 @@
 using FoodManager.Catalog.Domain.Filters;
 using FoodManager.Catalog.Domain.Interfaces.Repositories;
 using FoodManager.Catalog.Infrastructure.Stages;
-using Mattioli.Configurations.Http;
-using Mattioli.Configurations.Repositories;
+using FoodManager.Internal.Shared.Repositories;
+using FoodManager.Internal.Shared.Responses;
 using Microsoft.Extensions.Logging;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization;

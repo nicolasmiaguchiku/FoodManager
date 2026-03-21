@@ -1,4 +1,5 @@
 ﻿using FoodManager.Internal.Shared.Http.Auth.Models;
+using FoodManager.Internal.Shared.Models;
 
 namespace FoodManager.Catalog.CrossCutting.Models
 {

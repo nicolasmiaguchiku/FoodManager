@@ -4,7 +4,7 @@ using FoodManager.Catalog.Application.Output.Queries;
 using FoodManager.Catalog.Domain.Entities;
 using FoodManager.Catalog.Domain.Filters;
 using FoodManager.Catalog.Domain.Interfaces.Repositories;
-using Mattioli.Configurations.Http;
+using FoodManager.Internal.Shared.Responses;
 using Microsoft.Extensions.Logging;
 using Moq;
 
