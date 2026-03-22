@@ -5,4 +5,4 @@ using LiteBus.Commands.Abstractions;
 
 namespace FoodManager.Catalog.Application.Input.Handlers.Commands;
 
-public record AddFoodCommand(AddFoodRequest FoodRequest) : ICommand<Result<GetFoodResponse>>;
+public record AddFoodCommand(AddFoodRequest FoodRequest) : ICommand<Result<Guid>>;

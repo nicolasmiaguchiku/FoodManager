@@ -1,6 +1,5 @@
 ﻿using FoodManager.Catalog.Application.Mappers;
 using FoodManager.Catalog.Domain.Interfaces.Repositories;
-using FoodManager.Internal.Shared.Http.Catalog.Responses;
 using FoodManager.Internal.Shared.Responses;
 using FoodManager.Internal.Shared.Services;
 using LiteBus.Commands.Abstractions;
@@ -11,9 +10,9 @@ namespace FoodManager.Catalog.Application.Input.Handlers.Commands
     public sealed class AddFoodCommandHandler(
         IFoodRepository _repository,
         ILogger<AddFoodCommandHandler> _logger,
-        ITenantProvider tenantProvider) : ICommandHandler<AddFoodCommand, Result<GetFoodResponse>>
+        ITenantProvider tenantProvider) : ICommandHandler<AddFoodCommand, Result<Guid>>
     {
-        public async Task<Result<GetFoodResponse>> HandleAsync(AddFoodCommand request, CancellationToken cancellationToken = default)
+        public async Task<Result<Guid>> HandleAsync(AddFoodCommand request, CancellationToken cancellationToken = default)
         {
             var tenant = tenantProvider.GetTenant();
             var result = request.FoodRequest.ToEntity(tenant);
@@ -22,7 +21,7 @@ namespace FoodManager.Catalog.Application.Input.Handlers.Commands
 
             _logger.LogInformation("FoodName {FoodName} add successfully", result.Name);
 
-            return Result<GetFoodResponse>.Success(result.ToResponse());
+            return Result<Guid>.Success(result.Id);
         }
     }
 }
