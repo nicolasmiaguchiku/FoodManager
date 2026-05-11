@@ -3,6 +3,8 @@ using FluentAssertions;
 using FoodManager.Catalog.Application.Input.Handlers.Commands;
 using FoodManager.Catalog.Domain.Entities;
 using FoodManager.Catalog.Domain.Interfaces.Repositories;
+using FoodManager.Internal.Shared.Http.Auth.Models;
+using FoodManager.Internal.Shared.Http.Catalog.Requests;
 using FoodManager.Internal.Shared.Services;
 using Microsoft.Extensions.Logging;
 using Moq;
@@ -29,7 +31,12 @@ namespace UnitTests.Commands
         public async Task WhenAddNewFoodAndRequestIsValidThenFoodShouldBeInsertAsync()
         {
             //Arrange
-            var command = _fixture.Create<AddFoodCommand>();
+            var request = _fixture.Create<AddFoodRequest>();
+            var command = new AddFoodCommand(request);
+
+            _tenantProviderMock
+                .Setup(x => x.GetTenant())
+                .Returns(new Tenant("Tenant-Test"));
 
             //Act
             var result = await _handler.HandleAsync(command, CancellationToken.None);
@@ -39,10 +46,7 @@ namespace UnitTests.Commands
                 .Should()
                 .BeTrue();
 
-            result.Should()
-                .NotBeNull();
-
-            result.Data
+            result
                 .Should()
                 .NotBeNull();
 
