@@ -26,7 +26,7 @@ namespace FoodManager.Catalog.Infrastructure.Stages
             MatchByCustomerIds(queryFilter),
             MatchByAssessment(queryFilter),
             MatchByNames(queryFilter),
-            MatchByCategorys(queryFilter),
+            //MatchByCategorys(queryFilter),
         };
 
             filters.RemoveAll(filter => filter == FilterDefinition<BsonDocument>.Empty);
@@ -63,13 +63,13 @@ namespace FoodManager.Catalog.Infrastructure.Stages
             return new BsonDocument("Assessment", new BsonDocument("$in", new BsonArray(queryFilter.Assessment)));
         }
 
-        private static FilterDefinition<BsonDocument> MatchByCategorys(FoodFiltersBuilder queryFilter)
-        {
-            if (queryFilter?.Categorys == null || !queryFilter.Categorys.Any())
-                return FilterDefinition<BsonDocument>.Empty;
+        //private static FilterDefinition<BsonDocument> MatchByCategorys(FoodFiltersBuilder queryFilter)
+        //{
+        //    if (queryFilter?.Categorys == null || !queryFilter.Categorys.Any())
+        //        return FilterDefinition<BsonDocument>.Empty;
 
-            return new BsonDocument("Category", new BsonDocument("$in",new BsonArray(queryFilter.Categorys.Select(c => c.ToString()))));
-        }
+        //    return new BsonDocument("Category", new BsonDocument("$in",new BsonArray(queryFilter.Categorys.Select(c => c.ToString()))));
+        //}
 
         private static FilterDefinition<BsonDocument> MatchByNames(FoodFiltersBuilder queryFilter)
         {

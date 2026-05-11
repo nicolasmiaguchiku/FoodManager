@@ -29,10 +29,6 @@ namespace FoodManager.Catalog.Application.Validations
                 .MaximumLength(150)
                 .WithMessage("The description should be a maximum of 150 characters.")
                 .When(x => !string.IsNullOrWhiteSpace(x.Description));
-
-            RuleFor(x => x.Category)
-                .IsInEnum()
-                .WithMessage("The category entered is invalid.");
         }
     }
 }
