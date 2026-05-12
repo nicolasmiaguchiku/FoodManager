@@ -29,7 +29,7 @@ namespace FoodManager.Catalog.Application.Mappers
             (
                 entity.Id,
                 entity.Name!,
-                (decimal)entity.Price,
+                entity.Price,
                 entity.Description ?? "",
                 entity.Assessment,
                 Category,
@@ -72,7 +72,7 @@ namespace FoodManager.Catalog.Application.Mappers
             {
                 Id = entity.Id,
                 Name = entity.Name,
-                Price = (decimal)entity.Price,
+                Price = entity.Price,
                 Tenant = entity.Tenant,
                 Description = entity.Description,
                 Assessment = entity.Assessment,

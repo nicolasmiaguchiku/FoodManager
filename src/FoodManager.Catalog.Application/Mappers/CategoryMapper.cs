@@ -9,7 +9,7 @@ namespace FoodManager.Catalog.Application.Mappers
         {
             return new CategoryEntity
             {
-                CategoryId = Guid.NewGuid(),
+                Id = Guid.NewGuid(),
                 CategoryName = request.CategoryName,
                 Description = request.Description,
                 Tenant = tenant,
