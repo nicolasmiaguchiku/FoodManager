@@ -17,7 +17,7 @@ namespace FoodManager.Catalog.Application.Input.Handlers.Commands
 
             await categoryRepository.AddAsync(categoryEntity, cancellationToken);
 
-            return Result<Guid>.Success(categoryEntity.CategoryId);
+            return Result<Guid>.Success(categoryEntity.Id);
         }
     }
 }
