@@ -1,12 +1,10 @@
-﻿using FoodManager.Internal.Shared.Enums;
-using FoodManager.Internal.Shared.Filters;
+﻿using FoodManager.Internal.Shared.Filters;
 
 namespace FoodManager.Catalog.Domain.Filters
 {
     public sealed class FoodFiltersBuilder : PaginationFilter
     {
         public IEnumerable<string>? Names { get; private set; }
-        public IEnumerable<Category>? Categorys { get; private set; }
         public IEnumerable<int>? Assessment { get; private set; }
         public IEnumerable<Guid>? FoodIds { get; private set; }
 
@@ -19,12 +17,6 @@ namespace FoodManager.Catalog.Domain.Filters
             public Builder WithNames(IEnumerable<string>? names)
             {
                 _filters.Names = names;
-                return this;
-            }
-
-            public Builder WithCategorys(IEnumerable<Category>? categorys)
-            {
-                _filters.Categorys = categorys;
                 return this;
             }
 

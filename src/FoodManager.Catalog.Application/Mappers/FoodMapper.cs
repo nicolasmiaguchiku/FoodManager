@@ -19,37 +19,40 @@ namespace FoodManager.Catalog.Application.Mappers
                 .SetDescription(food.Description)
                 .SetTenant(tenant.Name)
                 .SetAssessment(food.Assessment)
-                .SetCategory(food.Category)
+                .SetCategory(food.CategoryId)
                 .Build();
         }
 
-        public static GetFoodResponse ToResponse(this FoodEntity entity)
+        public static GetFoodResponse ToResponse(this FoodEntity entity, string Category)
         {
-            var food = new GetFoodResponse(
+            var food = new GetFoodResponse
+            (
                 entity.Id,
-                entity.Name ?? "",
+                entity.Name!,
                 entity.Price,
                 entity.Description ?? "",
                 entity.Assessment,
-                entity.Category,
-                entity.FoodImage?.Path ?? "");
+                Category,
+                entity.Tenant,
+                entity.FoodImage!.Path ?? ""
+            );
 
             return food;
         }
 
-        public static PagedResult<GetFoodResponse> ToResponse(
-          this PagedResult<FoodEntity> pagedResult,
-          PageFilterRequest pageFilterRequest)
-        {
-            return new PagedResult<GetFoodResponse>
-            {
-                PageNumber = pageFilterRequest.Page,
-                PageSize = pageFilterRequest.PageSize,
-                TotalPages = pagedResult.TotalPages,
-                TotalResults = pagedResult.TotalResults,
-                Results = pagedResult.Results.Select(result => result.ToResponse())
-            };
-        }
+        //public static PagedResult<GetFoodResponse> ToResponse(
+        //  this PagedResult<FoodEntity> pagedResult,
+        //  PageFilterRequest pageFilterRequest)
+        //{
+        //    return new PagedResult<GetFoodResponse>
+        //    {
+        //        PageNumber = pageFilterRequest.Page,
+        //        PageSize = pageFilterRequest.PageSize,
+        //        TotalPages = pagedResult.TotalPages,
+        //        TotalResults = pagedResult.TotalResults,
+        //        Results = pagedResult.Results.Select(result => result.ToResponse())
+        //    };
+        //}
 
         public static PagedResult<GetFoodResponse> ToResponse(this IEnumerable<GetFoodResponse> foods, PageFilterRequest pageFilter)
         {
@@ -73,7 +76,7 @@ namespace FoodManager.Catalog.Application.Mappers
                 Tenant = entity.Tenant,
                 Description = entity.Description,
                 Assessment = entity.Assessment,
-                Category = entity.Category,
+                CategoryId = entity.CategoryId,
             };
         }
 
@@ -83,11 +86,11 @@ namespace FoodManager.Catalog.Application.Mappers
             {
                 Id = food.Id,
                 Name = food.Name,
-                Price = food.Price,
+                Price = (double)food.Price,
                 Description = food.Description,
                 Tenant = food.Tenant!,
                 Assessment = food.Assessment,
-                Category = food.Category,
+                CategoryId = food.CategoryId,
             };
         }
     }

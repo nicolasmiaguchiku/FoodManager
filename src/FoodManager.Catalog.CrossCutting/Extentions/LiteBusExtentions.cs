@@ -18,10 +18,10 @@ namespace FoodManager.Catalog.CrossCutting.Extentions
                     module.RegisterFromAssembly(typeof(AddFoodCommandHandler).Assembly);
                 });
 
-                litebus.AddQueryModule(module =>
-                {
-                    module.RegisterFromAssembly(typeof(GetFoodQueryHandler).Assembly);
-                });
+                //litebus.AddQueryModule(module =>
+                //{
+                //    module.RegisterFromAssembly(typeof(GetFoodQueryHandler).Assembly);
+                //});
             });
 
             return services;
