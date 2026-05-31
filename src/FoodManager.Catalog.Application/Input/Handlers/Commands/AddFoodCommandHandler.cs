@@ -9,13 +9,11 @@ namespace FoodManager.Catalog.Application.Input.Handlers.Commands
 {
     public sealed class AddFoodCommandHandler(
         IFoodRepository _repository,
-        ILogger<AddFoodCommandHandler> _logger,
-        ITenantProvider tenantProvider) : ICommandHandler<AddFoodCommand, Result<Guid>>
+        ILogger<AddFoodCommandHandler> _logger) : ICommandHandler<AddFoodCommand, Result<Guid>>
     {
         public async Task<Result<Guid>> HandleAsync(AddFoodCommand request, CancellationToken cancellationToken = default)
         {
-            var tenant = tenantProvider.GetTenant();
-            var result = request.FoodRequest.ToEntity(tenant);
+            var result = request.FoodRequest.ToEntity();
 
             await _repository.AddAsync(result, cancellationToken);
 

@@ -10,14 +10,13 @@ namespace FoodManager.Catalog.Application.Mappers
 {
     public static class FoodMapper
     {
-        public static FoodEntity ToEntity(this AddFoodRequest food, Tenant tenant)
+        public static FoodEntity ToEntity(this AddFoodRequest food)
         {
             return new FoodEntity.Builder()
                 .SetId(Guid.NewGuid())
                 .SetName(food.Name)
                 .SetPrice(food.Price)
                 .SetDescription(food.Description)
-                .SetTenant(tenant.Name)
                 .SetAssessment(food.Assessment)
                 .SetCategory(food.CategoryId)
                 .Build();
