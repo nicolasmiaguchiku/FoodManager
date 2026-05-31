@@ -15,7 +15,6 @@ var applicationSettings = builder.Configuration.GetApplicationSettings(builder.E
 builder.Services
     .AddMongo(applicationSettings.MongoSettings)
     .AddRepositories()
-    .AddApiAuthentication(applicationSettings.KeycloakSettings.Realm)
     .ConfigureLiteBus()
     .ConfigureValidationErrorResponses()
     .AddApiSpecification()
