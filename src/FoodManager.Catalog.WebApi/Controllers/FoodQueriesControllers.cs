@@ -9,7 +9,6 @@ namespace FoodManager.Catalog.WebApi.Controllers
 {
     [ApiController]
     [Route("api/v1/food")]
-    [Authorize]
     public class FoodQueriesControllers(IQueryMediator queryMediator) : ControllerBase
     {
 
@@ -22,7 +21,6 @@ namespace FoodManager.Catalog.WebApi.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        [RequiredRole("ViewFood")]
         public async Task<IActionResult> GetAllFoodsAsync([FromQuery] GetFoodRequest query, CancellationToken cancellationToken)
         {
             var result = await queryMediator.QueryAsync(new GetFoodQuery(query), cancellationToken);
