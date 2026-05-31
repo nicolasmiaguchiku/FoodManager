@@ -5,14 +5,13 @@ namespace FoodManager.Catalog.Application.Mappers
 {
     public static class CategoryMapper
     {
-        public static CategoryEntity ToEntity(this CreateCategoryRequest request, string tenant)
+        public static CategoryEntity ToEntity(this CreateCategoryRequest request)
         {
             return new CategoryEntity
             {
                 Id = Guid.NewGuid(),
                 CategoryName = request.CategoryName,
                 Description = request.Description,
-                Tenant = tenant,
                 IsActive = true
             };
         }

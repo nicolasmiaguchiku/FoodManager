@@ -7,13 +7,11 @@ using LiteBus.Commands.Abstractions;
 namespace FoodManager.Catalog.Application.Input.Handlers.Commands
 {
     public sealed class CreateCategoryCommandHandler(
-        ICategoryRepository categoryRepository,
-        ITenantProvider tenantProvider) : ICommandHandler<CreateCategoryCommand, Result<Guid>>
+        ICategoryRepository categoryRepository) : ICommandHandler<CreateCategoryCommand, Result<Guid>>
     {
         public async Task<Result<Guid>> HandleAsync(CreateCategoryCommand message, CancellationToken cancellationToken = default)
         {
-            var tenant = tenantProvider.GetTenant();
-            var categoryEntity = CategoryMapper.ToEntity(message.CreateCategoryRequest, tenant.Name);
+            var categoryEntity = CategoryMapper.ToEntity(message.CreateCategoryRequest);
 
             await categoryRepository.AddAsync(categoryEntity, cancellationToken);
 

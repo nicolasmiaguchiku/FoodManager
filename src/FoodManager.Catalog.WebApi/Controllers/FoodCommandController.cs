@@ -12,7 +12,6 @@ namespace FoodManager.Catalog.WebApi.Controllers
 {
     [ApiController]
     [Route("api/v1/food")]
-    [Authorize]
     public class FoodCommandController(ICommandMediator commandMediator) : ControllerBase
     {
         /// <summary>
@@ -23,7 +22,6 @@ namespace FoodManager.Catalog.WebApi.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        [RequiredRole("AddFood")]
         public async Task<IActionResult> AddFoodAsync([FromBody] AddFoodRequest request, CancellationToken cancellationToken)
         {
             var result = await commandMediator.SendAsync(new AddFoodCommand(request), cancellationToken);
@@ -44,7 +42,6 @@ namespace FoodManager.Catalog.WebApi.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        [RequiredRole("DeleteFood")]
         public async Task<IActionResult> DeleteFoodAsync(Guid id, CancellationToken cancellationToken)
         {
             var result = await commandMediator.SendAsync(new DeleteFoodCommand(id), cancellationToken);
@@ -66,7 +63,6 @@ namespace FoodManager.Catalog.WebApi.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        [RequiredRole("UpdatedFood")]
         public async Task<IActionResult> UpdateFoodAsync(Guid id, [FromBody] JsonPatchDocument<FoodDto> food, CancellationToken cancellationToken)
         {
             var updateFoodRequest = new UpdateFoodRequest(id)
@@ -92,7 +88,6 @@ namespace FoodManager.Catalog.WebApi.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        [RequiredRole("UploadImageFood")]
         public async Task<IActionResult> UploadImage([FromRoute] Guid id, [FromForm] UploadImageFoodRequest request, CancellationToken cancellationToken)
         {
             var result = await commandMediator.SendAsync(new UploadImageFoodCommand(id, request), cancellationToken);
